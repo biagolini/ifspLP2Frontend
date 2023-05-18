@@ -1,0 +1,30 @@
+@import "/src/variables.scss";
+
+h1 {
+  font-weight: bold;
+  font-size: 4em;
+  letter-spacing: 2px;
+  color: $primary;
+}
+
+.background {
+  background: $primary;
+  height: 100vh; // Estende a coloração do fundo
+  width: 100vw; // Estende a coloração do fundo
+}
+
+.error-container {
+  background: #ffffff;
+  padding: 0 px;
+  height: 80vh;
+  width: 80vh;
+}
+
+.elements-container {
+  height: 35vh;
+}
+
+.icon-container {
+  font-size: 20em;
+  color: $primary;
+}

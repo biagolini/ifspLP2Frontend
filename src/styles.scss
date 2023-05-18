@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/theming";
+@include mat-core();
+
+// importar tema personalizado
+@import "themes.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
+
+.full-page-height {
+  height: 100vh;
+}
+.half-width {
+  width: 50%;
+}
+
+.page {
+  margin: 40px;
+  .page-header {
+    .page-title {
+      color: primary;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    margin-bottom: 5%;
+    border-bottom: solid 1px #707070;
+  }
+
+  .subtitle {
+    color: primary;
+    h2 {
+      margin: 0;
+      font-weight: bold;
+    }
+    h3 {
+      padding: 0.8em 0;
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+
+  .filter .searcher {
+    height: 60px;
+    font-size: 16px;
+  }
+
+  .mat-flat-button {
+    font-size: 16px;
+  }
+}
+
+.table-header {
+  font-size: 14px;
+}
+
+.login-button {
+  background-color: accent;
+  color: white;
+}
+
+.warn-button {
+  background-color: #ff00001c !important;
+  color: #ff0000 !important;
+}
+
+.button-size {
+  width: 160px;
+}
+
+.readonly {
+  pointer-events: none;
+}
+
+.logo-size {
+  height: 70px;
+  width: auto;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+mat-toolbar {
+  min-height: 7vh !important;
+  max-height: 10vh !important;
+  top: 0;
+  z-index: 1000;
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+.navegation-container {
+  width: 100%;
+  min-height: 86vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}

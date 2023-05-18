@@ -1,0 +1,25 @@
+<div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="space-around center">
+  <div
+    [matMenuTriggerFor]="userMenu"
+    class="button"
+    fxLayoutGap="10px"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div
+      class="user-menu"
+      fxLayoutGap="10px"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+    >
+      <mat-menu #userMenu="matMenu">
+        <button class="houver-black" mat-menu-item (click)="changeLanguage()">
+          <div>
+            <mat-icon class="houver-black">language</mat-icon>
+            {{ "general.currentLanguange" | translate }}
+          </div>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

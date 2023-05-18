@@ -1,0 +1,89 @@
+<div class="toolbar-container">
+  <mat-toolbar color="primary" routerLink="/">
+    <button mat-button>{{ "toolbar.announcement" | translate }}</button>
+  </mat-toolbar>
+  <mat-toolbar
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+    color="accent"
+  >
+    <div fxLayout="row" fxLayoutAlign="center center" routerLink="/">
+      <img
+        class="logo-size"
+        src="assets/images/ecommerce_logo_outlined.svg"
+        alt="Logo empresa"
+      />
+    </div>
+
+    <app-menu> </app-menu>
+  </mat-toolbar>
+</div>
+
+<div>
+  <mat-sidenav-container autosize class="navegation-container">
+    <mat-sidenav
+      #sidenav
+      position="start"
+      class="nave-container"
+      opened="true"
+      mode="side"
+      fixedInViewport="false"
+    >
+      <mat-nav-list>
+        <mat-list-item (click)="openClose()">
+          <button mat-icon-button>
+            <mat-icon *ngIf="!isOpen">chevron_right</mat-icon>
+            <mat-icon *ngIf="isOpen"> chevron_left</mat-icon>
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="/">
+          <mat-icon mat-list-icon matTooltip="{{ 'menu.store' | translate }}">
+            local_offer</mat-icon
+          >
+          <p matLine *ngIf="isOpen">{{ "menu.store" | translate }}</p>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <mat-list-item (click)="changeLanguage()">
+          <mat-icon
+            mat-list-icon
+            matTooltip="{{ 'menu.changeLanguage' | translate }}"
+          >
+            language</mat-icon
+          >
+          <p matLine *ngIf="isOpen">
+            {{ "general.currentLanguange" | translate }}
+          </p>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+        <mat-list-item *ngIf="!isDark" (click)="setDarkTheme()">
+          <mat-icon
+            mat-list-icon
+            matTooltip="{{ 'menu.changeTheme' | translate }}"
+          >
+            dark_mode</mat-icon
+          >
+          <p matLine *ngIf="isOpen">{{ "menu.darkMode" | translate }}</p>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="isDark" (click)="setLigthTheme()">
+          <mat-icon
+            mat-list-icon
+            matTooltip="{{ 'menu.changeTheme' | translate }}"
+          >
+            light_mode</mat-icon
+          >
+          <p matLine *ngIf="isOpen">{{ "menu.lightMode" | translate }}</p>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
