@@ -3,100 +3,60 @@ export interface TypeModelSingle {
   description: string;
 }
 
-export interface TypesModelDual {
+export interface TypeModelDual {
   id: number;
-  descriptionEn: string;
-  descriptionPt: string;
-}
-
-
-export interface StatesModel {
-  id: number;
+  abbreviation: string;
   description: string;
-  name: string;
-}
 
-export interface GameOfferWrapper {
-  game: GameModel;
-  medias: Array<MediaModel>;
-  prices: Array<PriceModel>
 }
-
-export interface GameModel{
+export interface TypeTimeZone {
   id: number;
-  name: string;
-  releaseDate: string;
-  genre: number;
-  publisher: number;
-  cover: string;
-  bestPrice: number;
+  timezoneOffset: string;
+  timezoneDescription: string;
 }
 
-export interface MediaModel{
+
+export interface LoginModel{
   id: number;
-  game: number;
-  isVideo: boolean;
-  url: string;
+  user: number;
+  idTypeLogin: number;
+  username: string;
+  password: number;
+  passwordDateTimeLastEdition: string;
 }
 
-export interface PriceModel{
+export interface PhoneNumberModel{
   id: number;
-  gamePlatform: number;
-  dateTimePublish: string;
-  value: number;
+  user: number;
+  phoneNumber: string
+  idPhoneNumberType: number;
 }
 
-export interface  OrderModel {
+export interface PictureModel{
+  id: number;
+  user: number;
+  largeUrl: string
+  mediumUrl: string;
+  thumbnailUrl: string;
+}
+
+export interface  UserModel {
   id?: number;
-  idCustomer: number;
+  idTypeGender: number;
+  title: string;
   firstName: string;
   lastName: string;
+  idLocationType: number;
+  idRegionType: number;
+  street: string;
+  city: string;
+  idTypeState: number;
+  postcode: string;
+  latitude: number;
+  longitude: number;
+  idTypeTimezone: number;
   email: string;
-  idTypeStatusOrder: number;
-  dateTimeOrder: Date;
-  totalValue: number;
-  trackingCode: string;
-}
-
-export interface  ItemOrderModel {
-  id?: number;
-  quantity: number;
-  gameName: string;
-  gameId: number;
-  typePlatformId: number;
-  gameCover: string;
-  unityValue: number;
-  subTotal: number;
-}
-
-export interface  OrderWrapper {
-  medias: OrderModel;
-  prices: Array<ItemOrderModel>
-}
-
-export interface CartItensModel {
-  idPrice: number;
-  quantity: number;
-}
-
-export interface PricesModel {
-  idPrice: number;
-  idPlatform: number;
-  value: number;
-}
-
-export interface DetailCartItensModel {
-  gameCover: string;
-  gameName: string;
-  idPrice: number;
-  idPlatform: number;
-  quantity: number;
-  subTotal: number;
-  unityPrice: number;
-}
-
-export interface GameSummaryModel {
-  id: number;
-  name: string;
-  cover: string;
+  birthday: Date;
+  registered: Date;
+  idTypeNationality: number;
 }

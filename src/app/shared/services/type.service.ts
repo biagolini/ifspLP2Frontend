@@ -1,92 +1,99 @@
+import { TypeModelDual, TypeModelSingle, TypeTimeZone } from './../models/models';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { StatesModel, TypeModelSingle, TypesModelDual } from '../models/models';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TypeService {
   constructor(private http: HttpClient) {  }
+  public listGender : TypeModelSingle[] = [];
+  public listLocation : TypeModelSingle[] = [];
+  public listLogin : TypeModelSingle[] = [];
+  public listNationality : TypeModelDual[] = [];
+  public listPhoneNumber : TypeModelSingle[] = [];
+  public listRegion : TypeModelSingle[] = [];
+  public listState : TypeModelDual[] = [];
+  public listTimeZone : TypeTimeZone[] = [];
 
-  public listGenre: TypesModelDual[] = [];
-  public listPlatform: TypeModelSingle[] = [];
-  public listState: StatesModel[] = [];
-  public listStatusOrder : TypesModelDual[] = [];
-  public listWarehouseMovement : TypesModelDual[] = [];
-
-  updateListGenre() {
-    return this.http.get<any>(`${environment.apiUrl}/types/getGenre`).pipe(take(1));
+  updateListGender() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getGender`).pipe(take(1));
   }
 
-  updateListPlatform() {
-    return this.http.get<any>(`${environment.apiUrl}/types/getPlatform`).pipe(take(1));
+  updateListLocation() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getLocation`).pipe(take(1));
+  }
+
+  updateListLogin() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getLogin`).pipe(take(1));
+  }
+
+  updateListNationality() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getNationality`).pipe(take(1));
+  }
+
+  updateListPhoneNumber() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getPhoneNumber`).pipe(take(1));
+  }
+
+  updateListRegion() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getRegion`).pipe(take(1));
   }
 
   updateListState() {
     return this.http.get<any>(`${environment.apiUrl}/types/getState`).pipe(take(1));
   }
 
-  updateStatusOrder() {
-    return this.http.get<any>(`${environment.apiUrl}/types/getStatusOrder`).pipe(take(1));
+  updateListTimeZone() {
+    return this.http.get<any>(`${environment.apiUrl}/types/getlistTimeZone`).pipe(take(1));
   }
 
-  updateListWarehouseMovement() {
-    return this.http.get<any>(`${environment.apiUrl}/types/getWarehouseMovement`).pipe(take(1));
-  }
 
   fillTypesIfEmpty(){
-    if(this.listGenre.length==0){
-      this.updateListGenre().subscribe (typesList =>  {
-        this.listGenre = typesList
+    if(this.listGender.length==0){
+      this.updateListGender().subscribe (typesList =>  {
+        this.listGender = typesList
       });
     }
-
-    if(this.listPlatform.length==0){
-      this.updateListPlatform().subscribe (typesList =>  {
-        this.listPlatform = typesList
+    if(this.listLocation.length==0){
+      this.updateListLocation().subscribe (typesList =>  {
+        this.listLocation = typesList
       });
     }
-
+    if(this.listLogin.length==0){
+      this.updateListLogin().subscribe (typesList =>  {
+        this.listLogin = typesList
+      });
+    }
+    if(this.listNationality.length==0){
+      this.updateListNationality().subscribe (typesList =>  {
+        this.listNationality = typesList
+      });
+    }
+    if(this.listPhoneNumber.length==0){
+      this.updateListPhoneNumber().subscribe (typesList =>  {
+        this.listPhoneNumber = typesList
+      });
+    }
+    if(this.listRegion.length==0){
+      this.updateListRegion().subscribe (typesList =>  {
+        this.listRegion = typesList
+      });
+    }
     if(this.listState.length==0){
       this.updateListState().subscribe (typesList =>  {
         this.listState = typesList
       });
     }
-
-    if(this.listStatusOrder.length==0){
-      this.updateStatusOrder().subscribe (typesList =>  {
-        this.listStatusOrder = typesList
+    if(this.listTimeZone .length==0){
+      this.updateListTimeZone ().subscribe (typesList =>  {
+        this.listTimeZone  = typesList
       });
     }
-    if(this.listWarehouseMovement.length==0){
-      this.updateListWarehouseMovement().subscribe (typesList =>  {
-        this.listWarehouseMovement = typesList
-      });
-    }
-
   }
-
-  getStateNameById(id:number){
-    if(this.listState.length==0){
-      this.updateListState().subscribe (typesList =>  {
-        this.listState = typesList
-      });
-    }
-    return this.listState[id-1].name;
-  }
-
-
-  getStateAbreviationById(id:number){
-    if(this.listState.length==0){
-      this.updateListState().subscribe (typesList =>  {
-        this.listState = typesList
-      });
-    }
-    return this.listState[id-1].description;
-  }
-
 
 
 }
