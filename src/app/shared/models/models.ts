@@ -7,8 +7,8 @@ export interface TypeModelDual {
   id: number;
   abbreviation: string;
   description: string;
-
 }
+
 export interface TypeTimeZone {
   id: number;
   timezoneOffset: string;

@@ -95,5 +95,25 @@ export class TypeService {
     }
   }
 
+  getStateNameById(id:number){
+    if(this.listState.length==0){
+      this.updateListState().subscribe (typesList =>  {
+        this.listState = typesList
+      });
+    }
+    return this.listState[id-1].description;
+  }
+
+
+  getStateAbreviationById(id:number){
+    if(this.listState.length==0){
+        this.updateListState().subscribe (typesList =>  {
+            this.listState = typesList
+        });
+    }
+    // Retorna a abreviação do estado se existir; caso contrário, retorna undefined.
+    return this.listState && this.listState[id-1] && this.listState[id-1].abbreviation;
+}
+
 
 }

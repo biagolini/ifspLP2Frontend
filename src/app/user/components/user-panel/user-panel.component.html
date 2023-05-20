@@ -1,1 +1,62 @@
-<p>user-panel works!</p>
+<button mat-button (click)="getImage()">
+  TESTE
+  <mat-icon>visibility</mat-icon>
+</button>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <div class="user-container full-width" *ngIf="true">
+    <mat-toolbar color="primary" class="user-item-header">
+      <h1>{{ "user.header" | translate }}</h1>
+    </mat-toolbar>
+
+    <div
+      class="user-item-container"
+      style="padding: 0; margin: 0; line-height: 1em"
+    >
+      <div fxLayoutGap="2%" fxLayout="row wrap">
+        <div
+          class="card-container"
+          *ngFor="let item of users"
+          fxLayout="column"
+          fxLayoutAlign="space-around center"
+          routerLink="details/{{ item?.id }}"
+        >
+          <div
+            class="image-container"
+            fxLayout="column"
+            fxLayoutAlign="space-around center"
+          >
+            <img
+              src="{{ item?.thumbnailUrl }}"
+              alt="Game cover image"
+              class="user-cover-img"
+            />
+          </div>
+
+          <div class="user-description-container">
+            <h2>{{ item?.firstName }} {{ item?.lastName }}</h2>
+
+            <p>{{ item?.street }}</p>
+            <p>
+              {{ item?.city }},
+              {{ getStateAbreviationById(item?.idTypeState) }} -
+              {{ "user.zip" | translate }}
+              {{ item?.postcode }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-paginator
+          *ngIf="totalLength"
+          [length]="totalLength"
+          [pageSize]="pageSize"
+          [pageIndex]="0"
+          [pageSizeOptions]="[5, 10, 50, 100]"
+          [showFirstLastButtons]="true"
+          (page)="pageChange($event)"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

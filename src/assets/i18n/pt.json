@@ -1,38 +1,18 @@
 {
   "application": {
-    "name": "ecommerce XYZ"
+    "name": "Selecao de usuarios"
   },
   "toolbar": {
-    "announcement": "Você não pode perder nossas ofertas de hoje"
+    "announcement": "Sistema de seleção de usuários"
   },
   "menu": {
-    "store": "Ofertas do dia",
-    "customer": "Painel de clientes",
-    "order": "Painel de vendas",
-    "warehouse": "Estoque",
-    "login": "Acessar sua conta",
-    "logout": "Desconectar",
+    "users": "Usuários ativos",
     "darkMode": "Modo escuro",
     "lightMode": "Modo claro",
     "changeLanguage": "Alterar idioma",
     "changeTheme": "Alterar tema"
   },
-  "login": {
-    "login": "Login",
-    "enter": "Entrar",
-    "processing": "Processando...",
-    "username": "Usuário",
-    "password": "Senha",
-    "signIn": "Entrar",
-    "forgotPassword": "Esqueci a senha",
-    "message": {
-      "provideLogin": "Insira um nome de usuário/email",
-      "providePassword": "Insira uma senha",
-      "emailsIsInvalid": "Digite um e-mail válido",
-      "loginSuccess": "Login efetuado com sucesso!",
-      "loginFail": "Acesso negado! Por favor, verifique se os dados de usuário e senha estão corretos e tente novamente. Se o problema persistir, contate a administração."
-    }
-  },
+
   "general": {
     "currentLanguange": "Português",
     "login": "Login",
@@ -78,7 +58,8 @@
     "choosedColumns": "Colunas selecionadas",
     "workerRequest": "Suporte técnico"
   },
-  "customer": {
+  "user": {
+    "header": "Painel de usuários",
     "customer": "Cliente",
     "customers": "Clientes",
     "username": "Username",
@@ -105,98 +86,6 @@
     "error": {
       "created": "Erro detectado ao salvar o cliente em nosso banco de dados.",
       "updated": "Erro detectado ao atualizar o cliente em nosso banco de dados."
-    }
-  },
-  "store": {
-    "releaseDate": "Data de lançamento",
-    "price": "Preço",
-    "highlight": "Destaques",
-    "allGames": "Todos os jogos",
-    "discover": "Conheça",
-    "buyNow": "Compre agora",
-    "backStore": "Voltar a loja"
-  },
-  "order": {
-    "order": "Ordem",
-    "orders": "Ordens",
-    "id": "Id",
-    "firstName": "Nome",
-    "lastName": "Sobrenome",
-    "email": "email",
-    "dateTimeOrder": "Data",
-    "totalValue": "Total (BRL)",
-    "idTypeStatusOrder": "Status",
-    "trackingCode": "Codigo de rastreio",
-    "findDescription": "Buscar por perfil",
-    "customer": "Cliente",
-    "summary": "Resumo do pedido",
-    "provideProfile": "Descreva perfil da ordem/cliente",
-    "idCustomer": "Número de cadastro do cliente",
-    "cpf": "CPF",
-    "idOrder": "Número da ordem",
-    "username": "Username",
-    "reviewRequested": "Solicitação de revisão de valor de ordem enviado ao servidor",
-    "clickReview": "Revisar",
-    "itens": {
-      "itens": "Itens",
-      "quantity": "Quantidade",
-      "gameName": "Nome do jogo",
-      "typePlatformId": "Plataforma",
-      "unityValue": "Valor unitário",
-      "subTotal": "Sub-Total"
-    }
-  },
-  "cart": {
-    "cart": "Carrinho",
-    "highligths": "Veja também",
-    "itens": "Pedido",
-    "gameCover": "Capa",
-    "gameName": "Nome do Jogo",
-    "idPlatform": "Plataforma",
-    "quantity": "Quantidade",
-    "unityPrice": "Preço unitário",
-    "subTotal": "Sub-total",
-    "totalValue": "valorTotal",
-    "placeOrder": "Finalizar pedido",
-    "backStore": "Voltar para loja",
-    "makeLogin": "Faça login para finalizar seu pedido",
-    "success": {
-      "created": "Pedido realizado com sucesso!"
-    },
-    "error": {
-      "created": "Erro detectado ao realizado pedido, tente novamene mais tarde."
-    }
-  },
-  "warehouse": {
-    "warehouse": "Estoque",
-    "balance": "Balanço",
-    "backBalance": "Voltar para balanço de estoque",
-    "entry": "Entrada",
-    "entries": "Entradas",
-    "exit": "Saida",
-    "exits": "Saídas",
-    "findDescription": "Bucar por jogo",
-    "gameCover": "Capa",
-    "gameName": "Título",
-    "idPlatform": "Plataforma",
-    "quantity": "Quantidade no estoque",
-    "lastUpdate": "Ultima atualização",
-    "quantityMovement": "Quantidade movementada",
-    "entranceMovement": "Origem da entrada",
-    "exitMovement": "Origem da saída",
-    "timeMovement": "Horario da movementação",
-    "newmovement": "Inserir movementação",
-    "movement": {
-      "provideProfile": "Descreva a movementação",
-      "typeMovement": "Tipo de movementação",
-      "originMovement": "Origem da movementação",
-      "quantity": "Quantidade movementada",
-      "movementType1": "Fornecedor",
-      "movementType2": "Troca-Defeito",
-      "movementType3": "Venda",
-      "movementType4": "Perda operacional",
-      "successfullyCreated": "Movimentação salva com sucesso",
-      "creationError": "Erro no registro da movimentação "
     }
   }
 }

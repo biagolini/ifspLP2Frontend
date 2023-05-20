@@ -44,6 +44,7 @@ export class UserPanelComponent {
           next: (response) =>{
             this.listRegion = response;
           }
+
         });
 
         this.typeService.updateListLocation().subscribe({
@@ -51,7 +52,6 @@ export class UserPanelComponent {
             this.listLocation = response;
           }
         });
-
 
       this.filterControl.valueChanges.pipe(debounceTime(1000)).subscribe( () => {
         this.loadingPage = true;
@@ -63,24 +63,18 @@ export class UserPanelComponent {
         {field: this.sortBy.value, asc: this.asc.value},
         this.filterControl.value
        ).subscribe(response => {
-        console.log(response);
           this.users = response.content;
           this.loadingPage = false;
         }
-
-
-
         );
       })
-
         this.pageChange({
         pageIndex: this.page,
         pageSize: this.pageSize,
         length: this.totalLength,
       });
+
     }
-
-
 
     pageChange(pageEvent: PageEvent) {
       this.loadingPage = true;
@@ -99,6 +93,18 @@ export class UserPanelComponent {
           },
           error: () => this.feedback.showMessage('general.cantLoad'),
         });
+    }
+
+    getImage(){
+      console.log( "a");
+      console.log(this.users);
+
+
+
+    }
+
+    getStateAbreviationById(id:number){
+      return this.typeService.getStateAbreviationById(id);
     }
 
 

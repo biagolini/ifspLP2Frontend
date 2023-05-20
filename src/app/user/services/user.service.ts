@@ -24,4 +24,29 @@ export class UserService {
     if (sortBy.field&&!sortBy.asc) params = params.append('sort', sortBy.field+',desc');
     return this.http.get<any>(`${environment.apiUrl}/api/user`, { params });
   }
+
+  getUserById(id: number) {
+    return this.http.get<any>(`${environment.apiUrl}/api/user/${id}`);
+  }
+
+  createUser(formData: Object) {
+    return this.http.post<any>(`${environment.apiUrl}/api/user/`, formData);
+  }
+
+  updateUser(formData: Object, id: number) {
+    return this.http.put<any>(`${environment.apiUrl}/api/user/${id}`, formData);
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete<any>(`${environment.apiUrl}/api/user/${id}`);
+  }
+
+  getPictureUserById(id: number) {
+    return this.http.get<any>(`${environment.apiUrl}/api/picture/findByUserId/${id}`);
+  }
+
+  getPhoneNumberUserById(id: number) {
+    return this.http.get<any>(`${environment.apiUrl}/api/phone/findByUserId/${id}`);
+  }
+
 }
