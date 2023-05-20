@@ -2,11 +2,13 @@ import { TranslateService } from '@ngx-translate/core';
 import { FeedbackService } from './../../../shared/services/feedback.service';
 import { TypeService } from './../../../shared/services/type.service';
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { TypeModelSingle } from 'src/app/shared/models/models';
 import { PageEvent } from '@angular/material/paginator';
 import { debounceTime } from 'rxjs';
 import { UserService } from '../../services/user.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SearchUserDialogComponent } from '../search-user-dialog/search-user-dialog.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -21,6 +23,8 @@ export class UserPanelComponent {
     private typeService: TypeService,
     private translateService: TranslateService,
     private userService: UserService,
+    private form: FormBuilder,
+    private dialog: MatDialog,
     ) {  }
 
     totalLength!: number;
@@ -37,6 +41,17 @@ export class UserPanelComponent {
     // Options
     listRegion : TypeModelSingle[] = [];
     listLocation : TypeModelSingle[] = [];
+
+    // searchForm
+    searchForm = this.form.group({
+      orderStatus: [],
+      idOrder: [],
+      idCustomer: [],
+      firstName: [],
+      lastName: [],
+      email: [],
+      cpf: [],
+    });
 
 
     ngOnInit(): void {
@@ -55,18 +70,23 @@ export class UserPanelComponent {
 
       this.filterControl.valueChanges.pipe(debounceTime(1000)).subscribe( () => {
         this.loadingPage = true;
-        this.userService.findAllPaginated({
+        this.userService.findAllPaginated(
+        {
           pageIndex: this.page,
           pageSize: this.pageSize,
           length: this.totalLength,
         },
-        {field: this.sortBy.value, asc: this.asc.value},
-        this.filterControl.value
-       ).subscribe(response => {
-          this.users = response.content;
-          this.loadingPage = false;
-        }
-        );
+        {
+          field: this.sortBy.value,
+          asc: this.asc.value
+        },
+          this.filterControl.value
+        ).subscribe( response =>
+            {
+              this.users = response.content;
+              this.loadingPage = false;
+            }
+          );
       })
         this.pageChange({
         pageIndex: this.page,
@@ -95,18 +115,51 @@ export class UserPanelComponent {
         });
     }
 
-    getImage(){
-      console.log( "a");
-      console.log(this.users);
 
-
-
-    }
 
     getStateAbreviationById(id:number){
       return this.typeService.getStateAbreviationById(id);
     }
 
 
+    searchUser(){
+      const dialogConfig = new MatDialogConfig();
+          dialogConfig.disableClose = true; // Permite que ESC ou clicar fora da caixa feche o dialog
+          dialogConfig.autoFocus = true; // True, meaning that the focus will be set automatically on the first form field of the dialog
+          dialogConfig.width = "75%";
+          dialogConfig.data = this.searchForm
+          let dialogRef = this.dialog.open(SearchUserDialogComponent, dialogConfig);
+          dialogRef.afterClosed().subscribe(res => {
+            this.loadingPage = false;
+              if(res){
+                this.searchForm.patchValue(res); // atualiza o formulario de pesquisa
+
+                this.userService.findAllPaginated(
+                  {
+                    pageIndex: this.page,
+                    pageSize: this.pageSize,
+                    length: this.totalLength,
+                  },
+                  {
+                    field: this.sortBy.value,
+                    asc: this.asc.value
+                  },
+                    this.filterControl.value
+                  ).subscribe( response =>
+                      {
+                        this.users = response.content;
+                        this.loadingPage = false;
+                      }
+                  );
+              }
+          })
+    }
+
+
+    // Para ajudar no desenvolvimento
+    seeData(){
+      console.log( "Dados que estão sendo trabalhados");
+      console.log(this.users);
+    }
 
   }

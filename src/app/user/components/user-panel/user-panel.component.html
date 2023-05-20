@@ -1,8 +1,29 @@
-<button mat-button (click)="getImage()">
-  TESTE
+<button mat-button (click)="seeData()">
+  Ver dados no console
   <mat-icon>visibility</mat-icon>
 </button>
 <div fxLayout="column" fxLayoutAlign="space-around center">
+  <div
+    class="full-width"
+    fxLayout="row"
+    fxLayoutGap="1em"
+    fxLayoutAlign=" center"
+    fxFlexFill
+  >
+    <div fxFlex="65">
+      <mat-form-field fxFill>
+        <mat-label>{{ "general.filter" | translate }}</mat-label>
+        <input matInput type="text" [formControl]="filterControl" />
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="35">
+      <button mat-stroked-button (click)="searchUser()" style="width: 100%">
+        {{ "order.findDescription" | translate }}
+      </button>
+    </div>
+  </div>
+
   <div class="user-container full-width" *ngIf="true">
     <mat-toolbar color="primary" class="user-item-header">
       <h1>{{ "user.header" | translate }}</h1>

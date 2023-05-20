@@ -1,1 +1,224 @@
-<p>user-details works!</p>
+<button mat-button (click)="seeData()">
+  Ver dados no console
+  <mat-icon>visibility</mat-icon>
+</button>
+<div
+  class="page full-width"
+  fxFlex
+  fxLayout="column"
+  fxLayoutAlign="space-around start"
+>
+  <div
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    class="full-width full-page-height"
+    *ngIf="processing"
+  >
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="full-width" id="page" *ngIf="!processing">
+    <div fxLayout="column" fxLayoutGap="15px" class="full-page-width">
+      <div>
+        <div class="page-header">
+          <h1 class="page-title">
+            {{ "user.user" | translate }}
+          </h1>
+        </div>
+
+        <div class="subtitle full-width">
+          <h2>
+            {{ (isEdit ? "user.edit" : "user.new") | translate }}
+            {{ "user.user" | translate }}
+          </h2>
+        </div>
+        <div class="subtitle full-width">
+          <h3>
+            {{ "user.personal" | translate }}
+          </h3>
+        </div>
+        <form class="full-width" [formGroup]="userForm">
+          <div fxLayout="column" class="full-width">
+            <div fxLayout="row wrap" fxLayoutGap="1%">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.idTypeGender" | translate }}
+                </mat-label>
+                <input type="text" matInput formControlName="idTypeGender" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.title" | translate }}
+                </mat-label>
+                <input type="text" matInput formControlName="title" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.firstName" | translate }}
+                </mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="firstName"
+                  placeholder="ex.: Maria"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.lastName" | translate }}
+                </mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="lastName"
+                  placeholder="ex.: Silva"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.email" | translate }}
+                </mat-label>
+                <input type="text" matInput formControlName="email" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{ "user.birthday" | translate }}</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="pickerbirthday"
+                  formControlName="birthday"
+                />
+                <mat-datepicker-toggle matSuffix [for]="pickerbirthday">
+                  <mat-icon matDatepickerToggleIcon
+                    >keyboard_arrow_down</mat-icon
+                  >
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickerbirthday></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.idTypeNationality" | translate }}
+                </mat-label>
+
+                <input
+                  type="text"
+                  matInput
+                  formControlName="idTypeNationality"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="subtitle full-width">
+              <h3>
+                {{ "user.address" | translate }}
+              </h3>
+            </div>
+            <div fxLayout="row wrap" fxLayoutGap="1%">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.street" | translate }}
+                </mat-label>
+
+                <input type="text" matInput formControlName="street" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.city" | translate }}
+                </mat-label>
+                <input type="text" matInput formControlName="city" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{ "user.state" | translate }}</mat-label>
+                <mat-select formControlName="idTypeState">
+                  <mat-option [value]="">--</mat-option>
+                  <mat-option *ngFor="let type of listState" [value]="type.id">
+                    {{ type.abbreviation }} - {{ type.description }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.postcode" | translate }}
+                </mat-label>
+                <input
+                  type="number"
+                  matInput
+                  formControlName="postcode"
+                  placeholder="ex.: 12345-678"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="subtitle full-width">
+              <h3>
+                {{ "user.location" | translate }}
+              </h3>
+            </div>
+            <div fxLayout="row wrap" fxLayoutGap="1%">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.idLocationType" | translate }}
+                </mat-label>
+
+                <input type="text" matInput formControlName="idLocationType" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.idRegionType" | translate }}
+                </mat-label>
+
+                <input type="text" matInput formControlName="idRegionType" />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.idTypeTimezone" | translate }}
+                </mat-label>
+
+                <input type="text" matInput formControlName="idTypeTimezone" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.latitude" | translate }}
+                </mat-label>
+
+                <input type="number" matInput formControlName="latitude" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  {{ "user.longitude" | translate }}
+                </mat-label>
+
+                <input type="number" matInput formControlName="longitude" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
+        <button
+          mat-stroked-button
+          color="warn"
+          routerLink=".."
+          class="button-size"
+        >
+          {{ "general.cancel" | translate }}
+        </button>
+        <button
+          mat-stroked-button
+          color="accent"
+          class="button-size"
+          [disabled]="userForm.invalid"
+          (click)="!isEdit ? saveUser() : createUser()"
+        >
+          {{ "general.save" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

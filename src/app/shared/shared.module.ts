@@ -39,7 +39,6 @@ import { RequestConfirmDialogComponent } from './components/request-confirm-dial
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
-
 var module = [
   CommonModule,
   FlexLayoutModule,

@@ -1,1 +1,97 @@
-<p>search-user-dialog works!</p>
+<div
+  fxLayoutGap="20px"
+  fxLayout="column"
+  fxLayoutAlign="space-between start"
+  class="full-width"
+>
+  <div class="full-width" fxLayout="row" fxLayoutAlign="space-between center">
+    <h1>{{ "order.provideProfile" | translate }}</h1>
+  </div>
+
+  <div class="full-width">
+    <form
+      [formGroup]="searchForm"
+      fxLayout="column"
+      class="full-width"
+      (keyup.enter)="save()"
+      mask="CPF_CNPJ"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.idTypeStatusOrder" | translate }}</mat-label>
+        <mat-select formControlName="orderStatus">
+          <mat-option [value]="">--</mat-option>
+          <mat-option *ngFor="let type of listLocation" [value]="type.id">
+            XXXX
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.idOrder" | translate }}</mat-label>
+        <input
+          type="number"
+          formControlName="idOrder"
+          name="idOrder"
+          matInput
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.idCustomer" | translate }}</mat-label>
+        <input
+          type="number"
+          formControlName="idCustomer"
+          name="idCustomer"
+          matInput
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.firstName" | translate }}</mat-label>
+        <input formControlName="firstName" name="firstName" matInput />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.lastName" | translate }}</mat-label>
+        <input formControlName="lastName" name="lastName" matInput />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.email" | translate }}</mat-label>
+        <input formControlName="email" name="email" matInput />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ "order.cpf" | translate }}</mat-label>
+        <input formControlName="cpf" name="cpf" mask="CPF_CNPJ" matInput />
+      </mat-form-field>
+    </form>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="end"
+    fxLayoutGap="15px"
+    class="full-width button-container"
+  >
+    <span class="spacer"></span>
+    <button
+      mat-stroked-button
+      color="warn"
+      class="button-size"
+      mat-dialog-close
+      (click)="close()"
+    >
+      {{ "general.cancel" | translate }}
+    </button>
+    <button
+      mat-stroked-button
+      class="button-size"
+      color="accent"
+      mat-dialog-close
+      type="submit"
+      (click)="save()"
+    >
+      {{ "general.search" | translate }}
+    </button>
+  </div>
+</div>
