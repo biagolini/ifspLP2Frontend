@@ -1,84 +1,18 @@
 {
   "application": {
-    "name": "ecommerce XYZ"
+    "name": "Users Selection"
   },
   "toolbar": {
-    "announcement": "You don't want to miss our offers today"
+    "announcement": "Welcome to our Page"
   },
   "menu": {
-    "store": "Deals of the day",
-    "customer": "Customer panel",
-    "order": "Orders dashboard",
-    "warehouse": "Warehouse",
-    "login": "Access your account",
-    "logout": "Disconnect",
+    "users": "Active Users",
     "darkMode": "Dark mode",
     "lightMode": "Light mode",
     "changeLanguage": "Change language",
     "changeTheme": "Change theme"
   },
-  "login": {
-    "login": "Login",
-    "enter": "Enter",
-    "processing": "Processing...",
-    "username": "Username",
-    "password": "Password",
-    "signIn": "Sign in",
-    "forgotPassword": "Forgot Password",
-    "message": {
-      "provideLogin": "Provide an username/email",
-      "providePassword": "Provide a password",
-      "emailsIsInvalid": "Enter a valid email address",
-      "loginSuccess": "You are successfully logged in!",
-      "loginFail": "Access denied! Please check that your username and password are correct. Please be aware that usernames and passwords are case sensitive. If the problem persists, contact the administration."
-    }
-  },
-  "general": {
-    "currentLanguange": "English",
-    "login": "Login",
-    "logout": "Logout",
-    "search": "Search",
-    "date": "Date",
-    "description": "Description",
-    "action": "Action",
-    "register": "Registrations",
-    "terms": "Terms and conditions",
-    "exit": "Exit",
-    "back": "Back",
-    "save": "Save",
-    "cancel": "Cancel",
-    "close": "Close",
-    "filter": "Filter",
-    "add": "Add",
-    "edit": "Edit",
-    "delete": "Delete",
-    "view": "View",
-    "required": "is required",
-    "cantLoad": "Loading data error",
-    "activate": "Activate",
-    "send": "Send",
-    "language": "Language",
-    "english": "English",
-    "portuguese": "Portuguese",
-    "yes": "Yes",
-    "no": "No",
-    "confirm": "Confirmation",
-    "email": "E-mail",
-    "name": "Name",
-    "year": "Year",
-    "pageNotFound": "Page not found",
-    "wellcome": "Wellcome",
-    "review": "Review",
-    "decrease": "Decrease",
-    "increase": "Increase",
-    "aboutUs": "About us",
-    "siteMap": "Site map",
-    "contactUs": "Contact us",
-    "chooseColumns": "Choose columns to show",
-    "choosedColumns": "Selected columns",
-    "workerRequest": "Technical support"
-  },
-  "customer": {
+  "user": {
     "customer": "Customer",
     "customers": "Customers",
     "username": "Username",
@@ -107,98 +41,6 @@
     "error": {
       "created": "Error detected when saving customer in our database.",
       "updated": "Error detected when updating customer in our database."
-    }
-  },
-  "store": {
-    "releaseDate": "Release Date",
-    "price": "Price",
-    "highlight": "Highlight",
-    "allGames": "All games",
-    "discover": "Discover",
-    "buyNow": "Buy now",
-    "backStore": "Back to store"
-  },
-  "order": {
-    "order": "Order",
-    "orders": "Orders",
-    "id": "Id",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "email": "email",
-    "dateTimeOrder": "Date",
-    "totalValue": "Total (BRL)",
-    "idTypeStatusOrder": "Status",
-    "trackingCode": "TrackingCode",
-    "findDescription": "Find by profile",
-    "customer": "Customer",
-    "summary": "Order Summary",
-    "provideProfile": "Provide order/customer profile",
-    "idCustomer": "User Id",
-    "cpf": "CPF",
-    "idOrder": "Order Id",
-    "username": "Username",
-    "reviewRequested": "Order total value review resquested",
-    "clickReview": "Review",
-    "itens": {
-      "itens": "Itens",
-      "quantity": "Quantity",
-      "gameName": "Game name",
-      "typePlatformId": "Platform",
-      "unityValue": "Unity price",
-      "subTotal": "Sub-Total"
-    }
-  },
-  "cart": {
-    "cart": "Cart",
-    "highligths": "Highligths",
-    "itens": "Itens",
-    "gameCover": "Cover",
-    "gameName": "Game Name",
-    "idPlatform": "Platforma",
-    "quantity": "Quantity",
-    "unityPrice": "Unity price",
-    "subTotal": "Sub-total",
-    "totalValue": "Total",
-    "placeOrder": "Place order",
-    "backStore": "Back to store",
-    "makeLogin": "Do login to complete your order",
-    "success": {
-      "created": "Order successfully placed!"
-    },
-    "error": {
-      "created": "Error detected when placing order, please try again later."
-    }
-  },
-  "warehouse": {
-    "warehouse": "Warehouse",
-    "balance": "Balance",
-    "backBalance": "Back to warehouse balance",
-    "entry": "Entry",
-    "entries": "Entries",
-    "exit": "Exit",
-    "exits": "Exits",
-    "findDescription": "Find by game",
-    "gameCover": "Cover",
-    "gameName": "Title",
-    "idPlatform": "Platform",
-    "quantity": "Available quantity",
-    "lastUpdate": "Last update",
-    "quantityMovement": "Quantity movemented",
-    "entranceMovement": "Entrance origin",
-    "exitMovement": "Exit origin",
-    "timeMovement": "Time of movement",
-    "newmovement": "Add newe movement",
-    "movement": {
-      "provideProfile": "Describe movement",
-      "typeMovement": "Type of movement",
-      "originMovement": "Origin of movement",
-      "quantity": "Quantity movemented",
-      "movementType1": "Manufacturer",
-      "movementType2": "Return",
-      "movementType3": "Sale",
-      "movementType4": "Perda operacional",
-      "successfullyCreated": "Movement saved successfully",
-      "creationError": "Error in the movement record save"
     }
   }
 }
