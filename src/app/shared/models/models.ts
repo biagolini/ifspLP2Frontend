@@ -15,8 +15,7 @@ export interface TypeTimeZone {
   timezoneDescription: string;
 }
 
-
-export interface LoginModel{
+export interface LoginModel {
   id: number;
   user: number;
   idTypeLogin: number;
@@ -25,22 +24,22 @@ export interface LoginModel{
   passwordDateTimeLastEdition: string;
 }
 
-export interface PhoneNumberModel{
+export interface PhoneNumberModel {
   id: number;
   user: number;
-  phoneNumber: string
+  phoneNumber: string;
   idPhoneNumberType: number;
 }
 
-export interface PictureModel{
+export interface PictureModel {
   id: number;
   user: number;
-  largeUrl: string
+  largeUrl: string;
   mediumUrl: string;
   thumbnailUrl: string;
 }
 
-export interface  UserModel {
+export interface UserModel {
   id?: number;
   idTypeGender: number;
   title: string;

@@ -1,7 +1,3 @@
-<button mat-button (click)="seeData()">
-  Ver dados no console
-  <mat-icon>visibility</mat-icon>
-</button>
 <div
   class="page full-width"
   fxFlex
@@ -40,11 +36,15 @@
           <div fxLayout="column" class="full-width">
             <div fxLayout="row wrap" fxLayoutGap="1%">
               <mat-form-field appearance="outline">
-                <mat-label>
-                  {{ "user.idTypeGender" | translate }}
-                </mat-label>
-                <input type="text" matInput formControlName="idTypeGender" />
+                <mat-label>{{ "user.idTypeGender" | translate }}</mat-label>
+                <mat-select formControlName="idTypeGender">
+                  <mat-option [value]="">--</mat-option>
+                  <mat-option *ngFor="let type of listGender" [value]="type.id">
+                    {{ type.description }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
+
               <mat-form-field appearance="outline">
                 <mat-label>
                   {{ "user.title" | translate }}
@@ -97,15 +97,18 @@
               </mat-form-field>
 
               <mat-form-field appearance="outline">
-                <mat-label>
-                  {{ "user.idTypeNationality" | translate }}
-                </mat-label>
-
-                <input
-                  type="text"
-                  matInput
-                  formControlName="idTypeNationality"
-                />
+                <mat-label>{{
+                  "user.idTypeNationality" | translate
+                }}</mat-label>
+                <mat-select formControlName="idTypeNationality">
+                  <mat-option [value]="">--</mat-option>
+                  <mat-option
+                    *ngFor="let type of listNationality"
+                    [value]="type.id"
+                  >
+                    {{ type.abbreviation }} - {{ type.description }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
 
@@ -141,6 +144,16 @@
               </mat-form-field>
 
               <mat-form-field appearance="outline">
+                <mat-label>{{ "user.idRegionType" | translate }}</mat-label>
+                <mat-select formControlName="idRegionType">
+                  <mat-option [value]="">--</mat-option>
+                  <mat-option *ngFor="let type of listRegion" [value]="type.id">
+                    {{ type.description }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
                 <mat-label>
                   {{ "user.postcode" | translate }}
                 </mat-label>
@@ -160,27 +173,31 @@
             </div>
             <div fxLayout="row wrap" fxLayoutGap="1%">
               <mat-form-field appearance="outline">
-                <mat-label>
-                  {{ "user.idLocationType" | translate }}
-                </mat-label>
-
-                <input type="text" matInput formControlName="idLocationType" />
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <mat-label>
-                  {{ "user.idRegionType" | translate }}
-                </mat-label>
-
-                <input type="text" matInput formControlName="idRegionType" />
+                <mat-label>{{ "user.idLocationType" | translate }}</mat-label>
+                <mat-select formControlName="idLocationType">
+                  <mat-option [value]="">--</mat-option>
+                  <mat-option
+                    *ngFor="let type of listLocation"
+                    [value]="type.id"
+                  >
+                    {{ type.description }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
-                <mat-label>
-                  {{ "user.idTypeTimezone" | translate }}
-                </mat-label>
-
-                <input type="text" matInput formControlName="idTypeTimezone" />
+                <mat-label>{{ "user.idTypeTimezone" | translate }}</mat-label>
+                <mat-select formControlName="idTypeTimezone">
+                  <mat-option [value]="">--</mat-option>
+                  <mat-option
+                    *ngFor="let type of listTimeZone"
+                    [value]="type.id"
+                  >
+                    {{ type?.timezoneOffset }} {{ type?.timezoneDescription }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
+
               <mat-form-field appearance="outline">
                 <mat-label>
                   {{ "user.latitude" | translate }}
@@ -214,7 +231,7 @@
           color="accent"
           class="button-size"
           [disabled]="userForm.invalid"
-          (click)="!isEdit ? saveUser() : createUser()"
+          (click)="!isEdit ? createUser() : saveUser()"
         >
           {{ "general.save" | translate }}
         </button>

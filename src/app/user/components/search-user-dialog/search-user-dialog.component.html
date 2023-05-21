@@ -5,7 +5,7 @@
   class="full-width"
 >
   <div class="full-width" fxLayout="row" fxLayoutAlign="space-between center">
-    <h1>{{ "order.provideProfile" | translate }}</h1>
+    <h1>{{ "general.findDescription" | translate }}</h1>
   </div>
 
   <div class="full-width">
@@ -14,56 +14,70 @@
       fxLayout="column"
       class="full-width"
       (keyup.enter)="save()"
-      mask="CPF_CNPJ"
     >
       <mat-form-field appearance="outline">
-        <mat-label>{{ "order.idTypeStatusOrder" | translate }}</mat-label>
-        <mat-select formControlName="orderStatus">
+        <mat-label>{{ "user.idLocationType" | translate }}</mat-label>
+        <mat-select formControlName="idLocationType">
           <mat-option [value]="">--</mat-option>
           <mat-option *ngFor="let type of listLocation" [value]="type.id">
-            XXXX
+            {{ type.description }}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>{{ "order.idOrder" | translate }}</mat-label>
+        <mat-label>{{ "user.idRegionType" | translate }}</mat-label>
+        <mat-select formControlName="idRegionType">
+          <mat-option [value]="">--</mat-option>
+          <mat-option *ngFor="let type of listRegion" [value]="type.id">
+            {{ type.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>
+          {{ "general.latitudeMax" | translate }}
+        </mat-label>
         <input
           type="number"
-          formControlName="idOrder"
-          name="idOrder"
           matInput
+          formControlName="latitudeMax"
+          placeholder="ex.: 0.500"
         />
       </mat-form-field>
-
       <mat-form-field appearance="outline">
-        <mat-label>{{ "order.idCustomer" | translate }}</mat-label>
+        <mat-label>
+          {{ "general.latitudeMin" | translate }}
+        </mat-label>
         <input
           type="number"
-          formControlName="idCustomer"
-          name="idCustomer"
           matInput
+          formControlName="latitudeMin"
+          placeholder="ex.: -0.500"
         />
       </mat-form-field>
-
       <mat-form-field appearance="outline">
-        <mat-label>{{ "order.firstName" | translate }}</mat-label>
-        <input formControlName="firstName" name="firstName" matInput />
+        <mat-label>
+          {{ "general.longitudeMax" | translate }}
+        </mat-label>
+        <input
+          type="number"
+          matInput
+          formControlName="longitudeMax"
+          placeholder="ex.: 0.500"
+        />
       </mat-form-field>
-
       <mat-form-field appearance="outline">
-        <mat-label>{{ "order.lastName" | translate }}</mat-label>
-        <input formControlName="lastName" name="lastName" matInput />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>{{ "order.email" | translate }}</mat-label>
-        <input formControlName="email" name="email" matInput />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>{{ "order.cpf" | translate }}</mat-label>
-        <input formControlName="cpf" name="cpf" mask="CPF_CNPJ" matInput />
+        <mat-label>
+          {{ "general.longitudeMin" | translate }}
+        </mat-label>
+        <input
+          type="number"
+          matInput
+          formControlName="longitudeMin"
+          placeholder="ex.: -0.500"
+        />
       </mat-form-field>
     </form>
   </div>

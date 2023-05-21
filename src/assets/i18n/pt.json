@@ -12,7 +12,6 @@
     "changeLanguage": "Alterar idioma",
     "changeTheme": "Alterar tema"
   },
-
   "general": {
     "currentLanguange": "Português",
     "login": "Login",
@@ -56,13 +55,21 @@
     "contactUs": "Fale conosco",
     "chooseColumns": "Escolha colunas para apresentação",
     "choosedColumns": "Colunas selecionadas",
-    "workerRequest": "Suporte técnico"
+    "workerRequest": "Suporte técnico",
+    "findDescription": "Filtro seletor de perfil",
+    "latitudeMax": "Latitude Maxima",
+    "latitudeMin": "Latitude Minima",
+    "longitudeMax": "Longitude Maxima",
+    "longitudeMin": "Longitude Minima"
   },
   "user": {
     "header": "Painel de usuários",
+    "address": "Endereço",
+    "location": "Localização",
     "customer": "Cliente",
     "customers": "Clientes",
     "username": "Username",
+    "user": "Usuário",
     "firstName": "Nome",
     "lastName": "Sobrenome",
     "email": "email",
@@ -73,12 +80,20 @@
     "city": "Cidade",
     "state": "Estado",
     "zip": "CEP",
-    "findDescription": "Pesquisa por perfil",
     "edit": "Editar",
     "new": "Novo",
     "provideProfile": "Descreva perfil do usuário",
     "personal": "Dados pessoais",
     "contact": "Contato",
+    "idTypeGender": "Gênero",
+    "title": "Pronome",
+    "idTypeNationality": "Nacionalidade",
+    "postcode": "CEP",
+    "idLocationType": "Tipo de localização",
+    "idRegionType": "Região do Brasil",
+    "idTypeTimezone": "Fuso horário",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
     "success": {
       "created": "Cliente criado com sucesso!",
       "updated": "Cliente atualizado com sucesso!"

@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-
   setTheme(darkTheme: boolean) {
     if (darkTheme) this.theme = 'theme-alternate';
     else this.theme = '';
   }
 
-  isDarkTheme():boolean {
+  isDarkTheme(): boolean {
     if (localStorage.getItem('theme') == 'theme-alternate') return true;
     return false;
   }

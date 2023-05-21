@@ -7,18 +7,15 @@ import { concatMap } from 'rxjs/operators';
 
 import { RequestConfirmDialogComponent } from '../components/request-confirm-dialog/request-confirm-dialog.component';
 
-
-export interface JustifyResult{
-  confirm: boolean,
-  comments: string
+export interface JustifyResult {
+  confirm: boolean;
+  comments: string;
 }
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FeedbackService {
-
   constructor(
     private translateService: TranslateService,
     private snackBar: MatSnackBar,
@@ -35,19 +32,26 @@ export class FeedbackService {
       }),
       concatMap(([messageTranslation, closeTranslation]: string[]) => {
         return this.snackBar
-        .open(messageTranslation, closeTranslation, {
-          duration: 5000,
-          panelClass: ['snackbar'],
-        })
-        .afterDismissed();
+          .open(messageTranslation, closeTranslation, {
+            duration: 5000,
+            panelClass: ['snackbar'],
+          })
+          .afterDismissed();
       })
     );
   }
 
-  requestConfirm(message: string, param: any,callback: (result: JustifyResult) => void){
-    this.dialog.open(RequestConfirmDialogComponent,{ width: '500px', data: {message,param}})
-    .afterClosed()
-    .subscribe(callback);
+  requestConfirm(
+    message: string,
+    param: any,
+    callback: (result: JustifyResult) => void
+  ) {
+    this.dialog
+      .open(RequestConfirmDialogComponent, {
+        width: '500px',
+        data: { message, param },
+      })
+      .afterClosed()
+      .subscribe(callback);
   }
-
 }

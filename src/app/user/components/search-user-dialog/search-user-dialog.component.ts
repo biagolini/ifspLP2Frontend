@@ -1,61 +1,50 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { TranslateService } from '@ngx-translate/core';
-import { TypeModelDual } from 'src/app/shared/models/models';
+import { TypeModelSingle } from 'src/app/shared/models/models';
 import { TypeService } from 'src/app/shared/services/type.service';
 
 @Component({
   selector: 'app-search-user-dialog',
   templateUrl: './search-user-dialog.component.html',
-  styleUrls: ['./search-user-dialog.component.scss']
+  styleUrls: ['./search-user-dialog.component.scss'],
 })
 export class SearchUserDialogComponent {
   constructor(
     private typeService: TypeService,
     private form: FormBuilder,
     private dialogRef: MatDialogRef<SearchUserDialogComponent>,
-    private translateService: TranslateService,
-    @Inject (MAT_DIALOG_DATA) data: any){
-      this.searchForm.patchValue({
-        orderStatus: data.value.orderStatus,
-        idOrder: data.value.idOrder,
-        idCustomer: data.value.idCustomer,
-        firstName: data.value.firstName,
-        lastName: data.value.lastName,
-        email: data.value.email,
-        cpf: data.value.cpf,
-      })
-    }
+    @Inject(MAT_DIALOG_DATA) data: any
+  ) {
+    this.searchForm.patchValue({
+      idLocationType: data.value.idLocationType,
+      idRegionType: data.value.idRegionType,
+      latitudeMax: data.value.latitudeMax,
+      latitudeMin: data.value.latitudeMin,
+      longitudeMax: data.value.longitudeMax,
+      longitudeMin: data.value.longitudeMin,
+    });
+  }
 
   searchForm = this.form.group({
-    orderStatus: [],
-    idOrder: [],
-    idCustomer: [],
-    firstName: [],
-    lastName: [],
-    email: [],
-    cpf: [],
+    idLocationType: [],
+    idRegionType: [],
+    latitudeMax: [],
+    latitudeMin: [],
+    longitudeMax: [],
+    longitudeMin: [],
   });
 
   // Opções para selecionar
-  listLocation: TypeModelDual [] = []; //  Tipo de localizaçao = Especial/Normal/Trabalhoso
-  listRegion: TypeModelDual [] = []; //  Regiao = Norte/Nordeste/Centro-Oeste/Sudeste/Sul
-
+  listLocation: TypeModelSingle[] = []; //  Tipo de localizaçao = Especial/Normal/Trabalhoso
+  listRegion: TypeModelSingle[] = []; //  Regiao = Norte/Nordeste/Centro-Oeste/Sudeste/Sul
 
   ngOnInit(): void {
     // Pegar lista de opções para filtrar
-    this.typeService.updateListLocation().subscribe({
-      next: (response) =>{
-       this.listLocation = response;
-      }
+    this.typeService.fillTypesIfEmpty().then(() => {
+      this.listLocation = this.typeService.listLocation;
+      this.listRegion = this.typeService.listRegion;
     });
-    this.typeService.updateListRegion().subscribe({
-      next: (response) =>{
-       this.listRegion = response;
-      }
-    });
-
   }
 
   save() {
@@ -66,5 +55,9 @@ export class SearchUserDialogComponent {
     this.dialogRef.close();
   }
 
-
+  // Para ajudar no desenvolvimento
+  seeData() {
+    console.log('searchForm');
+    console.log(this.searchForm.value);
+  }
 }

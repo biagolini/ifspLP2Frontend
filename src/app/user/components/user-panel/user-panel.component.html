@@ -1,7 +1,3 @@
-<button mat-button (click)="seeData()">
-  Ver dados no console
-  <mat-icon>visibility</mat-icon>
-</button>
 <div fxLayout="column" fxLayoutAlign="space-around center">
   <div
     class="full-width"
@@ -10,16 +6,21 @@
     fxLayoutAlign=" center"
     fxFlexFill
   >
-    <div fxFlex="65">
+    <div fxFlex="50">
       <mat-form-field fxFill>
         <mat-label>{{ "general.filter" | translate }}</mat-label>
         <input matInput type="text" [formControl]="filterControl" />
       </mat-form-field>
     </div>
 
-    <div fxFlex="35">
+    <div fxFlex="25">
       <button mat-stroked-button (click)="searchUser()" style="width: 100%">
-        {{ "order.findDescription" | translate }}
+        {{ "general.findDescription" | translate }}
+      </button>
+    </div>
+    <div fxFlex="25">
+      <button mat-stroked-button routerLink="new" style="width: 100%">
+        {{ "general.add" | translate }}
       </button>
     </div>
   </div>
@@ -39,7 +40,7 @@
           *ngFor="let item of users"
           fxLayout="column"
           fxLayoutAlign="space-around center"
-          routerLink="details/{{ item?.id }}"
+          routerLink="{{ item?.id }}"
         >
           <div
             class="image-container"
@@ -48,9 +49,18 @@
           >
             <img
               src="{{ item?.thumbnailUrl }}"
-              alt="Game cover image"
+              alt="User image"
               class="user-cover-img"
+              *ngIf="item?.thumbnailUrl; else noImage"
             />
+
+            <ng-template #noImage>
+              <img
+                src="assets/images/person.svg"
+                alt="Default image"
+                class="user-cover-img"
+              />
+            </ng-template>
           </div>
 
           <div class="user-description-container">
@@ -60,7 +70,7 @@
             <p>
               {{ item?.city }},
               {{ getStateAbreviationById(item?.idTypeState) }} -
-              {{ "user.zip" | translate }}
+              {{ "general.zip" | translate }}
               {{ item?.postcode }}
             </p>
           </div>
