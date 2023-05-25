@@ -1,3 +1,4 @@
+<h1>Vinicius</h1>>
 <div
   class="page full-width"
   fxFlex
@@ -34,8 +35,10 @@
         </div>
         <form class="full-width" [formGroup]="userForm">
           <div fxLayout="column" class="full-width">
-            <div fxLayout="row wrap" fxLayoutGap="1%">
-              <mat-form-field appearance="outline">
+            <!-- Abertura de Linha ref. Item do Formulário -->
+            <!-- <div fxLayout="row wrap" fxLayoutGap="1%"></div> -->
+              <div fxLayout="row wrap" fxLayoutGap="1%">
+              <mat-form-field appearance="outline" fxFlex="10">
                 <mat-label>{{ "user.idTypeGender" | translate }}</mat-label>
                 <mat-select formControlName="idTypeGender">
                   <mat-option [value]="">--</mat-option>
@@ -44,7 +47,6 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-
               <mat-form-field appearance="outline">
                 <mat-label>
                   {{ "user.title" | translate }}
