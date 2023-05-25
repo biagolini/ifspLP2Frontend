@@ -9,6 +9,13 @@ export interface TypeModelDual {
   description: string;
 }
 
+export interface TypeState {
+  id: number;
+  abbreviation: string;
+  description: string;
+  idRegionType: number;
+}
+
 export interface TypeTimeZone {
   id: number;
   timezoneOffset: string;
@@ -46,7 +53,6 @@ export interface UserModel {
   firstName: string;
   lastName: string;
   idLocationType: number;
-  idRegionType: number;
   street: string;
   city: string;
   idTypeState: number;
@@ -57,5 +63,4 @@ export interface UserModel {
   email: string;
   birthday: Date;
   registered: Date;
-  idTypeNationality: number;
 }

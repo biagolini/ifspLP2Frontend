@@ -1,6 +1,6 @@
 {
   "application": {
-    "name": "Selecao de usuarios"
+    "name": "Processador de dados de clientes"
   },
   "toolbar": {
     "announcement": "Sistema de seleção de usuários"
@@ -87,7 +87,6 @@
     "contact": "Contato",
     "idTypeGender": "Gênero",
     "title": "Pronome",
-    "idTypeNationality": "Nacionalidade",
     "postcode": "CEP",
     "idLocationType": "Tipo de localização",
     "idRegionType": "Região do Brasil",

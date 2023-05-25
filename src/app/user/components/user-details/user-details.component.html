@@ -95,21 +95,6 @@
                 </mat-datepicker-toggle>
                 <mat-datepicker #pickerbirthday></mat-datepicker>
               </mat-form-field>
-
-              <mat-form-field appearance="outline">
-                <mat-label>{{
-                  "user.idTypeNationality" | translate
-                }}</mat-label>
-                <mat-select formControlName="idTypeNationality">
-                  <mat-option [value]="">--</mat-option>
-                  <mat-option
-                    *ngFor="let type of listNationality"
-                    [value]="type.id"
-                  >
-                    {{ type.abbreviation }} - {{ type.description }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
             </div>
 
             <div class="subtitle full-width">

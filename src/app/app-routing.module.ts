@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -13,7 +12,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-        import('./user/user.module').then((m) => m.UserModule)
+          import('./user/user.module').then((m) => m.UserModule),
       },
     ],
   },
@@ -22,6 +21,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

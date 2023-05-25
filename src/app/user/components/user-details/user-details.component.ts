@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {
   TypeModelDual,
   TypeModelSingle,
+  TypeState,
   TypeTimeZone,
 } from 'src/app/shared/models/models';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
@@ -36,10 +37,9 @@ export class UserDetailsComponent {
   listGender: TypeModelSingle[] = [];
   listLocation: TypeModelSingle[] = [];
   listLogin: TypeModelSingle[] = [];
-  listNationality: TypeModelDual[] = [];
   listPhoneNumber: TypeModelSingle[] = [];
   listRegion: TypeModelSingle[] = [];
-  listState: TypeModelDual[] = [];
+  listState: TypeState[] = [];
   listTimeZone: TypeTimeZone[] = [];
 
   // Formulario
@@ -51,15 +51,14 @@ export class UserDetailsComponent {
     lastName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     birthday: ['', Validators.required],
-    idTypeNationality: [''],
     idTypeTimezone: [''],
     // About user location
     street: ['', Validators.required],
     city: ['', Validators.required],
     idTypeState: ['', Validators.required],
     postcode: ['', Validators.required],
-    idLocationType: [''],
-    idRegionType: [''],
+    idLocationType: [{ value: '', disabled: true }],
+    idRegionType: [{ value: '', disabled: true }],
     latitude: [''],
     longitude: [''],
     // About our system
@@ -79,7 +78,6 @@ export class UserDetailsComponent {
       this.listGender = this.typeService.listGender;
       this.listLocation = this.typeService.listLocation;
       this.listLogin = this.typeService.listLogin;
-      this.listNationality = this.typeService.listNationality;
       this.listPhoneNumber = this.typeService.listPhoneNumber;
       this.listRegion = this.typeService.listRegion;
       this.listState = this.typeService.listState;

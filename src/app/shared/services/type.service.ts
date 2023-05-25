@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import {
   TypeModelDual,
   TypeModelSingle,
+  TypeState,
   TypeTimeZone,
 } from './../models/models';
 
@@ -17,10 +18,9 @@ export class TypeService {
   public listGender: TypeModelSingle[] = [];
   public listLocation: TypeModelSingle[] = [];
   public listLogin: TypeModelSingle[] = [];
-  public listNationality: TypeModelDual[] = [];
   public listPhoneNumber: TypeModelSingle[] = [];
   public listRegion: TypeModelSingle[] = [];
-  public listState: TypeModelDual[] = [];
+  public listState: TypeState[] = [];
   public listTimeZone: TypeTimeZone[] = [];
 
   updateListGender() {
@@ -38,12 +38,6 @@ export class TypeService {
   updateListLogin() {
     return this.http
       .get<any>(`${environment.apiUrl}/types/getLogin`)
-      .pipe(take(1));
-  }
-
-  updateListNationality() {
-    return this.http
-      .get<any>(`${environment.apiUrl}/types/getNationality`)
       .pipe(take(1));
   }
 
@@ -91,11 +85,6 @@ export class TypeService {
       this.listLogin = loginList;
     }
 
-    if (this.listNationality.length === 0) {
-      const nationalityList = await this.updateListNationality().toPromise();
-      this.listNationality = nationalityList;
-    }
-
     if (this.listPhoneNumber.length === 0) {
       const phoneNumberList = await this.updateListPhoneNumber().toPromise();
       this.listPhoneNumber = phoneNumberList;
@@ -122,7 +111,6 @@ export class TypeService {
       this.listGender.length > 0 &&
       this.listLocation.length > 0 &&
       this.listLogin.length > 0 &&
-      this.listNationality.length > 0 &&
       this.listPhoneNumber.length > 0 &&
       this.listRegion.length > 0 &&
       this.listState.length > 0 &&
