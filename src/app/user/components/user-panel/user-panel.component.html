@@ -64,13 +64,15 @@
           </div>
 
           <div class="user-description-container">
-            <h2>{{ item?.firstName }} {{ item?.lastName }}</h2>
+            <h2>
+              {{ item?.firstName | titlecase }} {{ item?.lastName | titlecase }}
+            </h2>
 
-            <p>{{ item?.street }}</p>
+            <p>{{ item?.street | titlecase }}</p>
             <p>
-              {{ item?.city }},
+              {{ item?.city | titlecase }},
               {{ getStateAbreviationById(item?.idTypeState) }} -
-              {{ "general.zip" | translate }}
+              {{ "user.zip" | translate }}
               {{ item?.postcode }}
             </p>
           </div>
