@@ -10,6 +10,7 @@
 .form-field-item-handset-small {
   width: 100%;
 }
+
 // Tablet
 
 .form-field-item-tablet {
@@ -35,4 +36,25 @@
 
 .form-field-item-web-small {
   width: 22.3%;
+}
+
+//Classes
+
+//page full-width
+
+.page .full-width {
+
+}
+
+//page-title
+.page-title {
+
+}
+
+
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  box-shadow: 20px 20px;
 }
