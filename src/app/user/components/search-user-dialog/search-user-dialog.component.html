@@ -1,11 +1,12 @@
-<h1>Renata</h1>
 <div
   fxLayoutGap="20px"
   fxLayout="column"
   fxLayoutAlign="space-between start"
   class="full-width"
 >
-  <div class="full-width" fxLayout="row" fxLayoutAlign="space-between center">
+<!--TITULO-->
+
+  <div class="full-width-form" fxLayout="row" fxLayoutAlign="space-between center" >
     <h1>{{ "general.findDescription" | translate }}</h1>
   </div>
 
@@ -16,6 +17,7 @@
       class="full-width"
       (keyup.enter)="save()"
     >
+<!--TIPO LOCALIZAÇÃO-->
       <mat-form-field appearance="outline">
         <mat-label>{{ "user.idLocationType" | translate }}</mat-label>
         <mat-select formControlName="idLocationType">
@@ -26,6 +28,7 @@
         </mat-select>
       </mat-form-field>
 
+<!--TIPO REGIÃO-->
       <mat-form-field appearance="outline">
         <mat-label>{{ "user.idRegionType" | translate }}</mat-label>
         <mat-select formControlName="idRegionType">
@@ -35,7 +38,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-
+<!--TIPO LATITUDE MAX-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.latitudeMax" | translate }}
@@ -47,6 +50,7 @@
           placeholder="ex.: 0.500"
         />
       </mat-form-field>
+<!--TIPO LATITUDE MIN-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.latitudeMin" | translate }}
@@ -58,6 +62,7 @@
           placeholder="ex.: -0.500"
         />
       </mat-form-field>
+<!--TIPO LONGITUDE MAX-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.longitudeMax" | translate }}
@@ -69,6 +74,7 @@
           placeholder="ex.: 0.500"
         />
       </mat-form-field>
+<!--TIPO LONGITUDE MIN-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.longitudeMin" | translate }}
@@ -89,6 +95,8 @@
     class="full-width button-container"
   >
     <span class="spacer"></span>
+<!--BOTÃO FECHAR-->
+
     <button
       mat-stroked-button
       color="warn"
@@ -98,6 +106,8 @@
     >
       {{ "general.cancel" | translate }}
     </button>
+
+<!--BOTÃO SALVAR-->
     <button
       mat-stroked-button
       class="button-size"
