@@ -4,9 +4,13 @@
   fxLayoutAlign="space-between start"
   class="full-width"
 >
-<!--TITULO-->
+  <!--TITULO-->
 
-  <div class="full-width-form" fxLayout="row" fxLayoutAlign="space-between center" >
+  <div
+    class="full-width-form div01"
+    fxLayout="column"
+    fxLayoutAlign="space-around center"
+  >
     <h1>{{ "general.findDescription" | translate }}</h1>
   </div>
 
@@ -17,7 +21,7 @@
       class="full-width"
       (keyup.enter)="save()"
     >
-<!--TIPO LOCALIZAÇÃO-->
+      <!--TIPO LOCALIZAÇÃO-->
       <mat-form-field appearance="outline">
         <mat-label>{{ "user.idLocationType" | translate }}</mat-label>
         <mat-select formControlName="idLocationType">
@@ -28,7 +32,7 @@
         </mat-select>
       </mat-form-field>
 
-<!--TIPO REGIÃO-->
+      <!--TIPO REGIÃO-->
       <mat-form-field appearance="outline">
         <mat-label>{{ "user.idRegionType" | translate }}</mat-label>
         <mat-select formControlName="idRegionType">
@@ -38,7 +42,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-<!--TIPO LATITUDE MAX-->
+      <!--TIPO LATITUDE MAX-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.latitudeMax" | translate }}
@@ -50,7 +54,7 @@
           placeholder="ex.: 0.500"
         />
       </mat-form-field>
-<!--TIPO LATITUDE MIN-->
+      <!--TIPO LATITUDE MIN-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.latitudeMin" | translate }}
@@ -62,7 +66,7 @@
           placeholder="ex.: -0.500"
         />
       </mat-form-field>
-<!--TIPO LONGITUDE MAX-->
+      <!--TIPO LONGITUDE MAX-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.longitudeMax" | translate }}
@@ -74,7 +78,7 @@
           placeholder="ex.: 0.500"
         />
       </mat-form-field>
-<!--TIPO LONGITUDE MIN-->
+      <!--TIPO LONGITUDE MIN-->
       <mat-form-field appearance="outline">
         <mat-label>
           {{ "general.longitudeMin" | translate }}
@@ -95,7 +99,7 @@
     class="full-width button-container"
   >
     <span class="spacer"></span>
-<!--BOTÃO FECHAR-->
+    <!--BOTÃO FECHAR-->
 
     <button
       mat-stroked-button
@@ -107,7 +111,7 @@
       {{ "general.cancel" | translate }}
     </button>
 
-<!--BOTÃO SALVAR-->
+    <!--BOTÃO SALVAR-->
     <button
       mat-stroked-button
       class="button-size"
