@@ -1,4 +1,38 @@
-sidenav-open {
-  width: 500px;
-  background-color: red;
+//LOGO
+.mat-toolbar-single-row {
+  height: 10px;
 }
+
+mat-toolbar {
+  min-height: 20vh !important;
+  max-height: 45vh !important;
+  top: 0;
+  z-index: 1000;
+
+}
+
+.logo-size {
+  height: 190px;
+  width: auto;
+  padding: 0px;
+  margin-left: -70px;
+
+}
+
+.mat-toolbar.mat-accent {
+  background: #eeecec;
+  color: white;
+}
+
+
+//SIDENAV
+.nave-container{
+  width: 120px;
+}
+
+
+
+
+
+
+

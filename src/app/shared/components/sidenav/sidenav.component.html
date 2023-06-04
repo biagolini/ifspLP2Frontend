@@ -1,24 +1,29 @@
+
+<!--SISTEMA DE SELEÇÃO DE USUÁRIOS-->
 <div class="toolbar-container">
-  <mat-toolbar color="primary" routerLink="/">
+  <!--<mat-toolbar color="primary" routerLink="/">
     <button mat-button>{{ "toolbar.announcement" | translate }}</button>
-  </mat-toolbar>
+  </mat-toolbar>-->
+
   <mat-toolbar
     fxLayout="row"
     fxLayoutAlign="space-between center"
     color="accent"
   >
-    <div fxLayout="row" fxLayoutAlign="center center" routerLink="/">
+
+  <!--LOGO DA EMPRESA-->
+    <div fxLayout="row" fxLayoutAlign="center center" routerLink="/" class="logo">
       <img
         class="logo-size"
-        src="assets/images/logo_outlined.svg"
+        src="assets/images/logo.png"
         alt="Logo empresa"
       />
     </div>
-
     <app-menu> </app-menu>
   </mat-toolbar>
 </div>
 
+<!--MENU-->
 <div>
   <mat-sidenav-container autosize class="navegation-container">
     <mat-sidenav
@@ -29,23 +34,30 @@
       mode="side"
       fixedInViewport="false"
     >
+
       <mat-nav-list>
-        <mat-list-item (click)="openClose()">
-          <button mat-icon-button>
+        <!--<mat-list-item (click)="openClose()">
+
+BOTÃO EXPANDIR
+            <button mat-icon-button>
             <mat-icon *ngIf="!isOpen">chevron_right</mat-icon>
             <mat-icon *ngIf="isOpen"> chevron_left</mat-icon>
-          </button>
-        </mat-list-item>
-        <mat-divider></mat-divider>
+            </button>
+            </mat-list-item>-->
+            <!--<mat-divider></mat-divider>-->
+
+<!--BOTÃO USUÁRIOS-->
         <mat-list-item routerLink="/">
-          <mat-icon mat-list-icon matTooltip="{{ 'menu.users' | translate }}">
-            account_circle</mat-icon
-          >
-          <p matLine *ngIf="isOpen">{{ "menu.users" | translate }}</p>
+
+          <mat-icon mat-list-icon matTooltip="{{ 'menu.users' | translate }}"> account_circle</mat-icon>
+
+<!--ALGUMA COISA AQUI QUE ESCREVE O NOME DO USUÁRIO - SERIA A LEGENDA DE USUÁRIOS-->
+          <!--<p matLine *ngIf="isOpen">{{ "menu.users" | translate }}</p>-->
         </mat-list-item>
 
         <mat-divider></mat-divider>
 
+        <!--BOTÃO IDIOMA-->
         <mat-list-item (click)="changeLanguage()">
           <mat-icon
             mat-list-icon
@@ -53,13 +65,14 @@
           >
             language</mat-icon
           >
-          <p matLine *ngIf="isOpen">
+          <!--<p matLine *ngIf="isOpen">
             {{ "general.currentLanguange" | translate }}
-          </p>
+          </p>-->
         </mat-list-item>
 
         <mat-divider></mat-divider>
 
+        <!--BOTÃO MUDAR TEMA-->
         <mat-list-item *ngIf="!isDark" (click)="setDarkTheme()">
           <mat-icon
             mat-list-icon
@@ -67,7 +80,7 @@
           >
             dark_mode</mat-icon
           >
-          <p matLine *ngIf="isOpen">{{ "menu.darkMode" | translate }}</p>
+          <!--<p matLine *ngIf="isOpen">{{ "menu.darkMode" | translate }}</p>-->
         </mat-list-item>
 
         <mat-list-item *ngIf="isDark" (click)="setLigthTheme()">
