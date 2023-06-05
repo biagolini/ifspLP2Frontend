@@ -1,9 +1,6 @@
 {
   "application": {
-    "name": "Processador de dados de clientes"
-  },
-  "toolbar": {
-    "announcement": "Bem-vindo à nossa Página"
+    "name": "Seletor de usuários"
   },
   "menu": {
     "users": "Usuários ativos",
@@ -73,7 +70,7 @@
     "firstName": "Nome",
     "lastName": "Sobrenome",
     "email": "email",
-    "birthDate": "Data de nasemiento",
+    "birthday": "Data de nascmiento",
     "cpf": "CPF",
     "street": "Rua",
     "number": "Número",

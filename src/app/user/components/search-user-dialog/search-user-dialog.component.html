@@ -94,23 +94,12 @@
   </div>
   <div
     fxLayout="row"
-    fxLayoutAlign="end"
+    fxLayoutAlign="space-around center"
     fxLayoutGap="15px"
     class="full-width button-container"
   >
     <span class="spacer"></span>
     <!--BOTÃO FECHAR-->
-
-    <button
-      mat-stroked-button
-      color="warn"
-      class="button-size"
-      mat-dialog-close
-      (click)="close()"
-    >
-      {{ "general.cancel" | translate }}
-    </button>
-
     <!--BOTÃO SALVAR-->
     <button
       mat-stroked-button
@@ -119,8 +108,20 @@
       mat-dialog-close
       type="submit"
       (click)="save()"
+      fxFlex="40"
     >
       {{ "general.search" | translate }}
+    </button>
+
+    <button
+      mat-stroked-button
+      color="warn"
+      class="button-size"
+      mat-dialog-close
+      (click)="close()"
+      fxFlex="40"
+    >
+      {{ "general.cancel" | translate }}
     </button>
   </div>
 </div>

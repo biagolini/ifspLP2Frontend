@@ -1,23 +1,18 @@
-
 <!--SISTEMA DE SELEÇÃO DE USUÁRIOS-->
 <div class="toolbar-container">
-  <!--<mat-toolbar color="primary" routerLink="/">
-    <button mat-button>{{ "toolbar.announcement" | translate }}</button>
-  </mat-toolbar>-->
-
   <mat-toolbar
     fxLayout="row"
     fxLayoutAlign="space-between center"
     color="accent"
   >
-
-  <!--LOGO DA EMPRESA-->
-    <div fxLayout="row" fxLayoutAlign="center center" routerLink="/" class="logo">
-      <img
-        class="logo-size"
-        src="assets/images/logo.png"
-        alt="Logo empresa"
-      />
+    <!--LOGO DA EMPRESA-->
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      routerLink="/"
+      class="logo"
+    >
+      <img class="logo-size" src="assets/images/logo.png" alt="Logo empresa" />
     </div>
     <app-menu> </app-menu>
   </mat-toolbar>
@@ -34,7 +29,6 @@
       mode="side"
       fixedInViewport="false"
     >
-
       <mat-nav-list>
         <!--<mat-list-item (click)="openClose()">
 
@@ -44,14 +38,15 @@ BOTÃO EXPANDIR
             <mat-icon *ngIf="isOpen"> chevron_left</mat-icon>
             </button>
             </mat-list-item>-->
-            <!--<mat-divider></mat-divider>-->
+        <!--<mat-divider></mat-divider>-->
 
-<!--BOTÃO USUÁRIOS-->
+        <!--BOTÃO USUÁRIOS-->
         <mat-list-item routerLink="/">
+          <mat-icon mat-list-icon matTooltip="{{ 'menu.users' | translate }}">
+            account_circle</mat-icon
+          >
 
-          <mat-icon mat-list-icon matTooltip="{{ 'menu.users' | translate }}"> account_circle</mat-icon>
-
-<!--ALGUMA COISA AQUI QUE ESCREVE O NOME DO USUÁRIO - SERIA A LEGENDA DE USUÁRIOS-->
+          <!--ALGUMA COISA AQUI QUE ESCREVE O NOME DO USUÁRIO - SERIA A LEGENDA DE USUÁRIOS-->
           <!--<p matLine *ngIf="isOpen">{{ "menu.users" | translate }}</p>-->
         </mat-list-item>
 

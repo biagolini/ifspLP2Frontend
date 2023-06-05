@@ -120,6 +120,7 @@ export class UserPanelComponent {
     dialogConfig.disableClose = true; // Permite que ESC ou clicar fora da caixa feche o dialog
     dialogConfig.autoFocus = true; // True, meaning that the focus will be set automatically on the first form field of the dialog
     dialogConfig.width = '75%';
+    dialogConfig.height = '75%';
     dialogConfig.data = this.searchForm;
     let dialogRef = this.dialog.open(SearchUserDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((res) => {
